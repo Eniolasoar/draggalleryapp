@@ -22,25 +22,46 @@ function Login(){
     const [error,setError]=useState("");
     const [user,setUser]=useState("");
 
-    function handleLogin(email,password) {
-        const auth = getAuth(); // Initialize the auth module
+    // function handleLogin(email,password) {
       
-        signInWithEmailAndPassword(auth, email, password)
-          .then((loginCredentials) => {
-            setUser(loginCredentials.user);
-            console.log("success");
-          })
-          .catch((error) => {
-            console.error("Authentication error:", error);
-            if (error.code === "auth/wrong-password") {
-              setError("wrongPassword");
-            } else if (error.code === "auth/user-not-found") {
-              setError("invalidUser");
-            } else {
-              setError("authError");
-            }
-          });
-      }
+      
+    //     signInWithEmailAndPassword(auth, email, password)
+    //       .then((loginCredentials) => {
+    //         setUser(loginCredentials.user);
+    //         console.log("success");
+    //       })
+    //       .catch((error) => {
+    //         console.error("Authentication error:", error);
+    //         if (error.code === "auth/wrong-password") {
+    //           setError("wrongPassword");
+    //         } else if (error.code === "auth/user-not-found") {
+    //           setError("invalidUser");
+    //         } else {
+    //           setError("authError");
+    //         }
+    //       });
+    //   }
+
+    const signIn=(e)=>{
+        e.preventDefault();
+        signInWithEmailAndPassword(auth,email,password)
+        .then((loginCredentials)=>{
+            console.log(loginCredentials)
+        })
+        .catch((error) => {
+                    console.error("Authentication error:", error);
+                    if (error.code === "auth/wrong-password") {
+                      setError("wrongPassword");
+                    } else if (error.code === "auth/user-not-found") {
+                      setError("invalidUser");
+                    } 
+                    else if (error.code === "auth/invalid-login-credentials") {
+                      setError("invalidcredentials");
+                    } else {
+                      setError("authError");
+                    }
+                  });
+    }
     
 
     return(
@@ -48,10 +69,10 @@ function Login(){
             <div className="authError">{error=="authError"? "Authentication Error!!Please try again":null}</div>
             <div className="formContainer">
                 <h1>DragImageGallery</h1>
-                <div className="inner-container">
+                <form className="inner-container" onSubmit={signIn}>
                     <h2>Sign in to start your session</h2>
                     <div className="input-container">
-                        <input type="email" id="email" placeholder="UserName" onChange={(e)=>setEmail(e.target.value)}/>
+                        <input type="email" id="email" placeholder="UserName" value={email} onChange={(e)=>setEmail(e.target.value)}/>
                         <div className="input-append-container">
                             <div className="input-append">
                                 <i className="material-icons">email</i>
@@ -63,7 +84,7 @@ function Login(){
                     </div>
                     <span className="errorMessage">{error=="invalidUser"?"UserName doesn't exist!!!" : null}</span>
                     <div className="input-container">
-                        <input type="password" id="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+                        <input type="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
                         <div className="input-append-container">
                             <div className="input-append">
                                 <i className="material-icons">lock</i>
@@ -73,9 +94,9 @@ function Login(){
             
                     </div>
                     <span className="errorMessage">{error=="wrongPassword"?"Incorrect Password!!" : null}</span>
-                    <button onClick={handleLogin}>Log In</button>
+                    <button type="submit">Log In</button>
             
-                </div>
+                </form>
             </div>
         </>
     )
