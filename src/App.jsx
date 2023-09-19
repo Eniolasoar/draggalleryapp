@@ -1,7 +1,9 @@
 import Home from "./components/Home.jsx";
+import Login from "./components/LogIn.jsx";
 function App(){
   return(
-    <Home/>
+    // <Home/>
+    <Login/>
   )
 }
 export default App;
