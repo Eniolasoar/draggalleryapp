@@ -10,7 +10,15 @@ function MainContent(){
         <div className="main-content">
             <h1 className="galleryHeading">Welcome to Your Gallery</h1>
             <div className="inputContainer">
-                <input type="text" placeholder="Search by tags" className="tagInput"/>
+                <input list="tags" placeholder="Search by tags" className="tagInput"/>
+                <datalist id="tags">
+                    <option>Sports</option>
+                    <option>Diving</option>
+                    <option>Sports</option>
+                    <option>Diving</option>
+                    <option>Sports</option>
+                    <option>Diving</option>
+                </datalist>
                 <button>Search</button>
             </div>
             <div className="imageContainer">
