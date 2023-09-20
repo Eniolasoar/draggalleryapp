@@ -14,7 +14,7 @@ h2{
 font-size:1rem;
 color: grey;
 }
-input{
+.input{
     width:400px;
     height: 40px;
     margin: 1rem 0;

@@ -1,0 +1,29 @@
+.imageContainer{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.galleryHeading{
+    margin: 1rem 0;
+}
+.inputContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tagInput{
+    width: 150px;
+    height: 30px;
+    margin:0;
+    padding-left: 10px;
+}
+.tagInput::placeholder{
+    font-size: 1rem;
+}
+button{
+    width:80px;
+    background-color: blue;
+    margin: 0;
+}

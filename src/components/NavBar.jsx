@@ -20,13 +20,13 @@ else {
     
     return(
         <nav className="nav-container">
-            <h1>DragGallery<br></br>App</h1>
+            <h1 className="heading">DragGallery<br></br>App</h1>
             <div className="nav-right">
                 <p className="home">Home</p>
                 
                 {/* <Link to="/gallery/create">Create New Gallery  </Link> */}
                 <div className="logo">
-                    <img src="/b1.jpeg" alt="" width={50}/>
+                    <img src="/b1.jpeg" alt="" width={50} className="image"/>
                     <p>Welcome, {newUsername}</p>
                 </div>
             </div>

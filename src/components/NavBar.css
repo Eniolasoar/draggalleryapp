@@ -19,7 +19,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-h1{
+.heading{
     font-size: 1em;
 }
 .logo{
@@ -28,7 +28,7 @@ h1{
     justify-content: center;
     align-items: center;
 }
-img{
+.image{
     border-radius: 50%;
 }
 .home{

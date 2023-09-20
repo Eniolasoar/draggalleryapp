@@ -74,7 +74,7 @@ function Login(){
                 <form className="inner-container" onSubmit={signIn}>
                     <h2>Sign in to start your session</h2>
                     <div className="input-container">
-                        <input type="email" id="email" placeholder="UserName" value={email} onChange={(e)=>setEmail(e.target.value)} style={{borderStyle,borderColor: error === "authError" ? "red" : borderColor}}/>
+                        <input className="input" type="email" id="email" placeholder="UserName" value={email} onChange={(e)=>setEmail(e.target.value)} style={{borderStyle,borderColor: error === "authError" ? "red" : borderColor}}/>
                         <div className="input-append-container" style={{borderColor}}>
                             <div className="input-append">
                                 <i className="material-icons">email</i>
@@ -86,7 +86,7 @@ function Login(){
                     </div>
                     <span className="errorMessage">{error=="invalidUser"?"UserName doesn't exist!!!" : null}</span>
                     <div className="input-container">
-                        <input type="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} style={{borderStyle,borderColor: error === "authError" ? "red" : borderColor}}/>
+                        <input className="input" type="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} style={{borderStyle,borderColor: error === "authError" ? "red" : borderColor}}/>
                         <div className="input-append-container" style={{borderColor}}>
                             <div className="input-append">
                                 <i className="material-icons">lock</i>
