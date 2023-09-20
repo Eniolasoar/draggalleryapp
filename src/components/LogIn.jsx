@@ -1,7 +1,9 @@
 import "./Login.css";
 import { auth } from "../../firebaseConfig";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import NavBar from "./NavBar.jsx";
+import { useNavigate } from 'react-router-dom';
 
 //USER HAS ALREADY BEING ADDED IN THE DATABASE
 // async function initializeUserRegistration(email, password) {
@@ -20,33 +22,27 @@ function Login(){
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const [error,setError]=useState("");
-    const [user,setUser]=useState("");
+    const [borderColor,setBorderColor]=useState("1px solid gainsboro");
+    
+    const borderStyle={
+        borderRight: "0",
+        borderRadius: "5px",
+        borderTopRightRadius: "0",
+        borderBottomRightRadius: "0",
+        outline: "none"
+    };
 
-    // function handleLogin(email,password) {
-      
-      
-    //     signInWithEmailAndPassword(auth, email, password)
-    //       .then((loginCredentials) => {
-    //         setUser(loginCredentials.user);
-    //         console.log("success");
-    //       })
-    //       .catch((error) => {
-    //         console.error("Authentication error:", error);
-    //         if (error.code === "auth/wrong-password") {
-    //           setError("wrongPassword");
-    //         } else if (error.code === "auth/user-not-found") {
-    //           setError("invalidUser");
-    //         } else {
-    //           setError("authError");
-    //         }
-    //       });
-    //   }
-
+    const navigate = useNavigate();
     const signIn=(e)=>{
+        console.log("success");
         e.preventDefault();
         signInWithEmailAndPassword(auth,email,password)
+        
         .then((loginCredentials)=>{
-            console.log(loginCredentials)
+           
+
+            const user=loginCredentials.user.email;
+            navigate('/navbar', { state: { username: user } });
         })
         .catch((error) => {
                     console.error("Authentication error:", error);
@@ -59,21 +55,27 @@ function Login(){
                       setError("invalidcredentials");
                     } else {
                       setError("authError");
+                      setBorderColor("2px solid red");
                     }
                   });
     }
-    
+  
 
     return(
         <>
-            <div className="authError">{error=="authError"? "Authentication Error!!Please try again":null}</div>
+            {error=="authError"?
+            <div className="authError">
+                Authentication Error!!Please try again
+            </div>
+
+             :null}
             <div className="formContainer">
-                <h1>DragImageGallery</h1>
+                <h1>DragGalleryApp</h1>
                 <form className="inner-container" onSubmit={signIn}>
                     <h2>Sign in to start your session</h2>
                     <div className="input-container">
-                        <input type="email" id="email" placeholder="UserName" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-                        <div className="input-append-container">
+                        <input type="email" id="email" placeholder="UserName" value={email} onChange={(e)=>setEmail(e.target.value)} style={{borderStyle,borderColor: error === "authError" ? "red" : borderColor}}/>
+                        <div className="input-append-container" style={{borderColor}}>
                             <div className="input-append">
                                 <i className="material-icons">email</i>
                             </div>
@@ -84,8 +86,8 @@ function Login(){
                     </div>
                     <span className="errorMessage">{error=="invalidUser"?"UserName doesn't exist!!!" : null}</span>
                     <div className="input-container">
-                        <input type="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
-                        <div className="input-append-container">
+                        <input type="password" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} style={{borderStyle,borderColor: error === "authError" ? "red" : borderColor}}/>
+                        <div className="input-append-container" style={{borderColor}}>
                             <div className="input-append">
                                 <i className="material-icons">lock</i>
                             </div>
@@ -98,6 +100,7 @@ function Login(){
             
                 </form>
             </div>
+            
         </>
     )
 };

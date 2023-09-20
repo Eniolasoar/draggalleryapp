@@ -4,6 +4,7 @@ import "./Home.css";
 function Home(){
     return(
         <>
+        <div className="body">
             <div className="container">
                 <h1>Welcome To <br></br>DragImageGallery</h1>
                 <div className="image-container">
@@ -20,6 +21,7 @@ function Home(){
             
             </div>
             <Outlet/>
+        </div>
         </>
     )
 };

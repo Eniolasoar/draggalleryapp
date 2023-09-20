@@ -5,7 +5,7 @@
   box-sizing: border-box;
   font-family: "DM Sans";
 }
-body {
+.body {
     margin: 0;
     padding: 0;
   background-color: gainsboro;

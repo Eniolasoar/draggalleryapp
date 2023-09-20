@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+  background-color: gainsboro;
+  
+ 
+  
+}
+.nav-container{
+    
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+    background-color: white;
+}
+.nav-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-size: 1em;
+}
+.logo{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+img{
+    border-radius: 50%;
+}
+.home{
+    padding: .3rem;
+    margin: 0 1rem;
+}
+.home:hover{
+    color: blue;
+    cursor: pointer;
+}
