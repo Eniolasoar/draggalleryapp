@@ -22,11 +22,11 @@ const handleClick = () => {
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
       <div className="imageBox" style={{position:"relative"}}>
-                        <img src={props.id} alt="" width={300} height={300}/>
+                        <img src={props.src} alt="" width={300} height={300} className="images" id=""/>
                         <img src="/heart.svg" alt="" className="heart" onClick={handleClick} style={{backgroundColor:heartColor}}/>
                         <div className="imageTag">
-                            <p>Sport</p>
-                            <p>Diving</p>
+                            <p>{props.tag}</p>
+                          
                         </div>
                     </div>
     </div>

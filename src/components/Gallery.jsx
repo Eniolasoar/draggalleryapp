@@ -1,5 +1,5 @@
-import MainContent from "./MainContent";
-import NavBar from "./NavBar";
+import MainContent from "./MainContent.jsx";
+import NavBar from "./NavBar.jsx";
 
 
 function Gallery(){

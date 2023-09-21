@@ -8,9 +8,9 @@ import { DndContext } from '@dnd-kit/core';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <App /> */}
+    
     <DndContext>
-    <Gallery/>
+    <App />
     </DndContext>
     
   </React.StrictMode>,
