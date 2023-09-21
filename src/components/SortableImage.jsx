@@ -1,0 +1,35 @@
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import "./MainContent.css";
+import React, { useState } from 'react'; 
+
+function SortableItem(props) {
+  const { attributes, listeners, setNodeRef, transform, transistion } =
+    useSortable({ id: props.id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transistion,
+  };
+
+  const [heartColor, setBackgroundColor] = useState('#9CA3AF');
+  
+
+const handleClick = () => {
+  setBackgroundColor('red');
+};
+
+  return (
+    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+      <div className="imageBox" style={{position:"relative"}}>
+                        <img src={props.id} alt="" width={300} height={300}/>
+                        <img src="/heart.svg" alt="" className="heart" onClick={handleClick} style={{backgroundColor:heartColor}}/>
+                        <div className="imageTag">
+                            <p>Sport</p>
+                            <p>Diving</p>
+                        </div>
+                    </div>
+    </div>
+  );
+}
+export default SortableItem;

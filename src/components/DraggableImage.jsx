@@ -3,14 +3,11 @@ import { useDraggable } from "@dnd-kit/core";
 import { useState } from "react";
 
 function DraggableImage({ onClick }) {
-  const { attributes, listeners, isDragging, setNodeRef , transform} = useDraggable({
-    id: "draggable",
-  });
+    const { attributes, listeners, isDragging, setNodeRef } = useDraggable();
 
-  const style = transform ? {
-    transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
-  } : undefined;
-
+    const style = isDragging ? {
+        opacity: 0.5,
+    } : undefined;
  
 
   const [heartColor, setBackgroundColor] = useState("#9CA3AF");
@@ -21,11 +18,11 @@ function DraggableImage({ onClick }) {
 
   return (
     <div
-      ref={setNodeRef}
-      {...attributes}
-      {...listeners}
-      className="imageBox"
-       style={style}
+    ref={setNodeRef}
+    {...attributes}
+    {...listeners}
+    className="imageBox"
+    style={style}
     >
       <img src="/home2.jpeg" alt="" width={300} height={300} />
       <img
