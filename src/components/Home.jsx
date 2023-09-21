@@ -8,12 +8,12 @@ function Home(){
             <div className="container">
                 <h1>Welcome To <br></br>DragImageGallery</h1>
                 <div className="image-container">
-                    <img src="/home1.jpeg" width={150} height={150}></img>
-                    <img src="/home2.jpeg" width={150} height={150}></img>
-                    <img src="/home3.jpeg" width={150} height={150}></img>
-                    <img src="/home4.jpeg" width={150} height={150}></img>
-                    <img src="/home5.jpeg" width={150} height={150}></img>
-                    <img src="/home6.jpeg" width={150} height={150}></img>
+                    <img src="/sky1.jpeg" width={150} height={150}></img>
+                    <img src="/nature2.jpeg" width={150} height={150}></img>
+                    <img src="/sky2.jpeg" width={150} height={150}></img>
+                    <img src="/nature1.jpeg" width={150} height={150}></img>
+                    <img src="/food1.jpeg" width={150} height={150}></img>
+                    <img src="/food2.jpeg" width={150} height={150}></img>
                 </div>
                 <Link to="/loginPage">
                     <button>Log In To Continue</button>
