@@ -76,3 +76,6 @@ button{
     opacity: 0.8;
     cursor: pointer;
 }
+.imageBox{
+    position: relative;
+}
