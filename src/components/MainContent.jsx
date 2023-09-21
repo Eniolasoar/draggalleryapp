@@ -140,7 +140,7 @@ function MainContent() {
               {imageData.map((item) => (
                 <SortableImage
                   key={item.src}
-                  id={item.src}
+                  id={item}
                   src={item.src}
                   className={item.class}
                   tag={item.tags}
