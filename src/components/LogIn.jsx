@@ -42,7 +42,7 @@ function Login(){
            
 
             const user=loginCredentials.user.email;
-            navigate('/navbar', { state: { username: user } });
+            navigate('/gallery', { state: { username: user } });
         })
         .catch((error) => {
                     console.error("Authentication error:", error);
@@ -65,7 +65,7 @@ function Login(){
         <>
             {error=="authError"?
             <div className="authError">
-                Authentication Error!!Please try again
+                   Authentication Error!!   Please input the valid login details
             </div>
 
              :null}

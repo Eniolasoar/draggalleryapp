@@ -1,7 +1,7 @@
 import Home from "./components/Home.jsx";
 import LogIn from "./components/LogIn.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar.jsx";
+import Gallery from "./components/Gallery.jsx";
 
 function App(){
   return(
@@ -10,7 +10,7 @@ function App(){
       <Routes>
         <Route path="/" element={<Home />}/>
           <Route path="loginPage" element={<LogIn/>}/>
-          <Route path="navbar" element={<NavBar/>}/>
+          <Route path="gallery" element={<Gallery/>}/>
       </Routes>
     </BrowserRouter>
   )
