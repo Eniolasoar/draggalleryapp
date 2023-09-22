@@ -21,7 +21,8 @@ const handleClick = () => {
 
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <div className="imageBox" style={{position:"relative"}}>
+      <div className="imageBox" style={{position:"relative",display: props.hidden? "none" : "block"}}>
+        {console.log("Hidden",props.hidden)};
                         <img src={props.src} alt="" width={300} height={300} className="images" id=""/>
                         <img src="/heart.svg" alt="" className="heart" onClick={handleClick} style={{backgroundColor:heartColor}}/>
                         <div className="imageTag">

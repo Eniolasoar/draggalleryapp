@@ -94,30 +94,19 @@ function MainContent() {
   }
 
   function searchTag() {
-    console.log("searchTag called");
-    let input = document.getElementById("input").value;
-    console.log("Input value:", input);
-    let imageList = document.getElementsByClassName("images");
-    for (let i = 0; i < imageList.length; i++) {
-      imageList[i].style.display = "none";
-    }
-
-    let searchQuery = document.getElementsByClassName("search");
-    for (let i = 0; i < searchQuery.length; i++) {
-      searchQuery[i].style.display = "none";
-    }
-
-    // Iterate over imageData and display images based on tags and classes
-    imageData.forEach((item) => {
-      if (item.tags.toLowerCase() === input.toLowerCase()) {
-        const imagesWithClass = document.getElementsByClassName(item.class);
-        for (let i = 0; i < imagesWithClass.length; i++) {
-          imagesWithClass[i].style.display = "block";
-          console.log("Image displayed:", element.src);
-        }
-      }
+    const input = document.getElementById("input").value.toLowerCase();
+  
+    setImages((items) => {
+      const updatedItems = items.map((item) => ({
+        ...item,
+        hidden: item.tags.toLowerCase() !== input,
+      }));
+      console.log(updatedItems);
+      return updatedItems;
     });
   }
+  
+  
   return (
     <>
       <div className="main-content">
@@ -154,6 +143,7 @@ function MainContent() {
                   src={item.src}
                   className={item.class}
                   tag={item.tags}
+                  hidden={item.hidden}
                 />
               ))}
             </SortableContext>
