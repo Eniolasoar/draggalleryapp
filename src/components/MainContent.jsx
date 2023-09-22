@@ -25,7 +25,7 @@ const imageData=[
         "class":"environment"
     },
     {
-        "src":"/enviroment2.jpeg",
+        "src":"/environment2.jpeg",
         "tags":"Environment",
         "class":"environment"
     },
@@ -62,32 +62,41 @@ const imageData=[
 ]
 function MainContent() {
   const [heartColor, setBackgroundColor] = useState("#9CA3AF");
-  const [languages, setLanguages] = useState([
-    "/home1.jpeg",
-    "/home2.jpeg",
-    "/home3.jpeg",
-    "/home4.jpeg",
-    "/home5.jpeg",
-    "/home6.jpeg",
-  ]);
+  const [images, setImages] = useState(imageData);
 
   const handleClick = () => {
     setBackgroundColor("red");
   };
   function handleDragEnd(event) {
-    console.log("welcome");
     const { active, over } = event;
-    if (active.id !== over.id) {
-      setLanguages((items) => {
-        const activeIndex = items.indexOf(active.id);
-        const overIndex = items.indexOf(over.id);
+    console.log("INITIAL ACTIVE:",active.id)
+    console.log("INITIAL OVER:",over.id)
+    if (active.id.src !== over.id.src) {
+      setImages((items) => {
 
-        return arrayMove(items, activeIndex, overIndex);
+        const activeIndex = items.findIndex((item) => 
+        item.src === active.id.src)
+        items.findIndex((item) => 
+        console.log("ACITVE SRC:",active.id.src));
+        const overIndex = items.findIndex((item) => item.src === over.id.src);
+
+        const newImages = [...items];
+
+        // Remove the active item from the array
+        const movedItem = newImages.splice(activeIndex, 1)[0];
+  
+        // Insert the movedItem at the overIndex
+        newImages.splice(overIndex, 0, movedItem);
+  
+        return newImages;
       });
     }
   }
+
   function searchTag() {
+    console.log("searchTag called");
     let input = document.getElementById("input").value;
+    console.log("Input value:", input);
     let imageList = document.getElementsByClassName("images");
     for (let i = 0; i < imageList.length; i++) {
       imageList[i].style.display = "none";
@@ -104,6 +113,7 @@ function MainContent() {
         const imagesWithClass = document.getElementsByClassName(item.class);
         for (let i = 0; i < imagesWithClass.length; i++) {
           imagesWithClass[i].style.display = "block";
+          console.log("Image displayed:", element.src);
         }
       }
     });
@@ -134,10 +144,10 @@ function MainContent() {
         >
           <div className="imageContainer">
             <SortableContext
-              items={imageData}
+              items={images}
               strategy={verticalListSortingStrategy}
             >
-              {imageData.map((item) => (
+              {images.map((item) => (
                 <SortableImage
                   key={item.src}
                   id={item}
