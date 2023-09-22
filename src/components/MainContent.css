@@ -87,9 +87,7 @@ button{
 
         margin-top: 0.625rem;
     }
-    .images{
-        width:300px;
-    }
+    
 }
 @media screen and (min-width:600px)and (max-width:992px){
     .imageContainer {

@@ -16,7 +16,7 @@ function Home(){
                     <img src="/food2.jpeg" width={150} height={150}></img>
                 </div>
                 <Link to="/loginPage">
-                    <button>Log In To Continue</button>
+                    <button style={{width:"200px",backgroundColor:"black",marginTop:"30px"}}>Log In To Continue</button>
                 </Link>
             
             </div>
