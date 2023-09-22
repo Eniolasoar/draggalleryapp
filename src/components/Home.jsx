@@ -8,7 +8,7 @@ function Home(){
             <div className="container">
                 <h1>Welcome To <br></br>DragImageGallery</h1>
                 <div className="image-container">
-                    <img src="/sky1.jpeg" width={150} height={150}></img>
+                    <img src="/sky.jpeg" width={150} height={150}></img>
                     <img src="/nature2.jpeg" width={150} height={150}></img>
                     <img src="/sky2.jpeg" width={150} height={150}></img>
                     <img src="/nature1.jpeg" width={150} height={150}></img>
