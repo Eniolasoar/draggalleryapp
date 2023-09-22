@@ -79,6 +79,18 @@ button{
 .imageBox{
     position: relative;
 }
+@media screen and (max-width:600px){
+    .imageContainer {
+        display: grid;
+        grid-template-columns: 300px;
+        gap: 40px;
+
+        margin-top: 0.625rem;
+    }
+    .images{
+        width:300px;
+    }
+}
 @media screen and (min-width:600px)and (max-width:992px){
     .imageContainer {
         display: grid;
